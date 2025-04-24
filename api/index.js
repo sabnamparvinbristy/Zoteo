@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import mongoose, { skipMiddlewareFunction } from 'mongoose';
 
 import dotenv from 'dotenv';
 
@@ -31,3 +31,21 @@ app.listen(3000,()=>{
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+
+// MIDDLE WARE
+// create middleware
+// err-is err from skip Middleware 
+// req-data from browser
+// resresponse from server to client
+// next-nest to Middleware
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;  // Get status code or default to 500
+    const message = err.message || 'Internal Server Error';
+    return res.status(statusCode).json({
+        success: false, 
+        statusCode,
+        message,
+    });
+});
+
+
