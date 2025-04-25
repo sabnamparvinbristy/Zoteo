@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className='bg-slate-200 shadow-md'>
+    <header className="shadow-md" style={{ backgroundColor: '#B4C5B9' }}>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
             <Link to='/'>
             <h1 className='font-bold text-sm sm:text-xl flex-wrap'>
-                <span className='text-slate-500'>Zoteo</span>
-                <span className='text-slate-700'>Estate</span>
+                <span className='text-slate-700'>Zo</span>
+                <span className='text-slate-950'>teo</span>
             </h1>
 
             </Link>
